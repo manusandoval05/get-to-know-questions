@@ -23,34 +23,64 @@
     <script src="static/js/index.js" type="module"></script>
 </head>
 <body>
-    <section class="hero is-fullheight is-danger">
-        <div class="container px-3">
-            <div class="card mt-3">
-                <header class="card-header">
-                    <p class="card-header-title">Getuno - Random get-to-know question</p>
-                    <div class="control">
-                        <div class="select my-3 mr-3">
-                            <select id="filter-dropdown">
-                                <option value="all">All</option>
-                                <option value="basic">Basic</option>
-                                <option value="starters">Ice Breakers</option>
-                                <option value="fun">Fun</option>
-                                <option value="effective">Effective</option>
-                                <option value="good">Good</option>
-                                <option value="interesting">Interesting</option>
-                                <option value="work">Work</option>
-                                <option value="couples">Couples</option>
-                                <option value="students">Students</option>
-                            </select>
+    <section class="hero is-fullheight is-danger" id="background">
+        <div class="columns">
+            <div class="column is-8">
+                <div class="container px-3">
+                    <div class="card mt-3">
+                        <header class="card-header">
+                            <p class="card-header-title">Getuno - Random get-to-know question</p>
+                            <div class="control">
+                                <div class="select my-3 mr-3">
+                                    <select id="filter-dropdown">
+                                        <option value="all">All</option>
+                                        <option value="basic">Basic</option>
+                                        <option value="starters">Ice Breakers</option>
+                                        <option value="fun">Fun</option>
+                                        <option value="effective">Effective</option>
+                                        <option value="good">Good</option>
+                                        <option value="interesting">Interesting</option>
+                                        <option value="work">Work</option>
+                                        <option value="couples">Couples</option>
+                                        <option value="students">Students</option>
+                                        <option value="truth">Truth or Dare</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="card-content">
+                            <h1 class="is-size-3" id="current-question"></h1>
+                        </div>
+                        <footer class="card-footer">
+                            <a class="card-footer-item button is-success is-medium is-outlined">
+                                <span class="icon">
+                                    <i class="bi bi-check2-circle"></i>
+                                </span>
+                            </a>
+                            <a href="#" class="card-footer-item button is-info is-medium is-outlined" id="question-generator">Question</a>
+                            <a href="#" class="card-footer-item button is-danger is-medium is-outlined">
+                                <span class="icon">
+                                    <i class="bi bi-x-circle"></i>
+                                </span>
+                            </a>
+                            
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="container px-3">
+                    <div class="card mt-3">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Leaderboard
+                            </p>
+                        </header>
+                        <div class="card-content" id="leaderboard">
+                            
                         </div>
                     </div>
-                </header>
-                <div class="card-content">
-                    <h1 class="is-size-3" id="current-question"></h1>
                 </div>
-                <footer class="card-footer">
-                    <a href="#" class="card-footer-item" id="question-generator">Question</a>
-                </footer>
             </div>
         </div>
     </section>
