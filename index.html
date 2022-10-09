@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='description of website'>
+    <meta name='author' content='Author here'>
+    <meta property='twitter:card' content='summary'>
+    <meta property='og:site_name' content='name of site'>
+    <meta property='og:title' content='title'>
+    <meta property='og:type' content='website'>
+    <meta property='og:description' content='Description'>
+    <meta property='og:image' content='raw image link'>
+    <meta property='og:image:width' content='1280'>
+    <meta property='og:image:height' content='800'>
+    <meta property='og:url' content='webpage url'>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <script src="static/js/question_repository.js" type="module"></script>
+    <script src="static/js/index.js" type="module"></script>
+</head>
+<body>
+    <section class="hero is-fullheight is-danger">
+        <div class="container">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Random get-to-know question</p>
+                    <div class="control">
+                        <div class="select my-3 mr-3">
+                            <select id="filter-dropdown">
+                                <option value="all">All</option>
+                                <option value="basic">Basic</option>
+                                <option value="starters">Ice Breakers</option>
+                                <option value="fun">Fun</option>
+                                <option value="effective">Effective</option>
+                                <option value="good">Good</option>
+                                <option value="interesting">Interesting</option>
+                                <option value="work">Work</option>
+                                <option value="couples">Couples</option>
+                                <option value="students">Students</option>
+                            </select>
+                        </div>
+                    </div>
+                </header>
+                <div class="card-content">
+                    <h1 class="is-size-3" id="current-question"></h1>
+                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item" id="question-generator">Question</a>
+                </footer>
+            </div>
+        </div>
+    </section>
+</body>
