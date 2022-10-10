@@ -1,5 +1,5 @@
 import { STARTERS, BASIC, FUN, EFFECTIVE, GOOD, INTERESTING, WORK, COUPLES, STUDENTS, TRUTH } from "./question_repository.js";
-import { changeBackgroundColor } from "./background-color.js";
+import { changeBackgroundColor } from "./background_color.js";
 
 const QUESTIONS = {
     starters: STARTERS, 
