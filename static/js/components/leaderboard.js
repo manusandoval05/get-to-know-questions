@@ -24,6 +24,7 @@ export const createLeaderBoard = (playerList, $container) => {
         `;
         playerScoreboard[position] = {name: playerName, score: 0, row: $row}; 
         $tableBody.append($row);
+        position++;
     }); 
 
     $table.append($tableBody);
