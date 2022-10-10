@@ -33,10 +33,10 @@
         <div class="modal-content">
             <div class="box">
                 <h2 class="title has-text-centered">Start New Game</h2>
-                <div class="container">
-                    <button class="button is-info" id="player-creator-button" data-target="player-list" >New Player</button>
+                <div class="container mb-3">
+                    <button class="button is-info" id="player-creator-button" data-target="party-multiplayer-player-list" >New Player</button>
                 </div>
-                <div class="container" id="player-list">
+                <div class="container player-list" id="party-multiplayer-player-list">
                     <div class="field has-addons">
                         <p class="control has-icons-left">
                             <input class="input player-name" type="text" placeholder="Player 1">
@@ -53,11 +53,14 @@
                         </p>
                     </div>
                 </div>
+                <div class="container mt-3">
+                    <button class="button is-link start-game" data-target="party-multiplayer-player-list">Start Game</button>
+                </div>
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-    <section class="hero is-fullheight is-danger">
+    <section class="hero is-fullheight is-danger" id="main-screen">
         <div class="hero-body is-flex is-flex-direction-column">
             <p class="title is-size-1 has-text-centered">Getuno</p>
             <div class="columns">
@@ -67,7 +70,7 @@
             </div>         
         </div>
     </section>
-    <section class="hero is-fullheight is-danger is-hidden" id="background">
+    <section class="hero is-fullheight is-danger is-hidden" id="game-screen">
         <div class="columns">
             <div class="column is-8">
                 <div class="container px-3">

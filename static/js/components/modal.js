@@ -1,11 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-    function openModal($element){
-        $element.classList.add("is-active");
-    }
-    function closeModal($element){
-        $element.classList.remove("is-active");
-    }
-    
+const openModal = $element => {
+    $element.classList.add("is-active");
+};
+
+export const closeModal = $element => {
+    $element.classList.remove("is-active");
+};
+
+export const closeAllModals = () => {
+    (document.querySelectorAll(".modals") || []).forEach($modal => {
+        closeModal($modal);
+    });
+};
+
+export const initiateModals = () => {
     (document.querySelectorAll(".modal-trigger") || []).forEach( $trigger => {
         const modal = $trigger.dataset.target;
         const $target = document.getElementById(modal); 
@@ -22,4 +29,4 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal($target);
         });
     });
-});
+}; 

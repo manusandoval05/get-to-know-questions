@@ -17,7 +17,7 @@ const QUESTIONS = {
 
 document.addEventListener("DOMContentLoaded", () => {
     const $buttonGenerator = document.getElementById("question-generator");
-    const $background = document.getElementById("background"); 
+    const $background = document.getElementById("game-screen"); 
     const $dropdownFilter = document.getElementById("filter-dropdown");
     const $question = document.getElementById("current-question");
     $buttonGenerator.addEventListener("click", () => {
@@ -25,5 +25,5 @@ document.addEventListener("DOMContentLoaded", () => {
         const randomQuestion = category[Math.floor(Math.random() * category.length)];
         $question.innerText = randomQuestion; 
         changeBackgroundColor($background);
-    })
-})
+    });
+});
