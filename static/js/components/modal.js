@@ -7,7 +7,7 @@ export const closeModal = $element => {
 };
 
 export const closeAllModals = () => {
-    (document.querySelectorAll(".modals") || []).forEach($modal => {
+    (document.querySelectorAll(".modal") || []).forEach($modal => {
         closeModal($modal);
     });
 };

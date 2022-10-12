@@ -4,19 +4,20 @@ export const createLeaderBoard = (playerList, $container) => {
     let playerScoreboard = {};
     let position = 1;
 
-    $table.classList.add("table");
+    $table.classList.add("table", "is-fullwidth");
     $table.innerHTML = `
         <thead>
             <tr>
-                <th><abbr title="Position">Pos</abbr></th>
+                <th>Position</th>
                 <th>Player</th>
-                <th><abbr title="Pts">Points</abbr></th>
+                <th>Points</th>
             </tr>
         </thead>
     `;
     console.log(playerList);
     playerList.forEach(playerName => { 
         const $row = document.createElement("tr");
+        position === 1 ? $row.classList.add("is-selected") : null; 
         $row.innerHTML = `
             <th>${position}</th>
             <td>${playerName}</td>
