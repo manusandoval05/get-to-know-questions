@@ -14,7 +14,6 @@ export const createLeaderBoard = (playerList, $container) => {
             </tr>
         </thead>
     `;
-    console.log(playerList);
     playerList.forEach(playerName => { 
         const $row = document.createElement("tr");
         position === 1 ? $row.classList.add("is-selected") : null; 

@@ -27,3 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         changeBackgroundColor($background);
     });
 });
+
+export const generateRandomQuestion = () => {
+    const $dropdownFilter = document.getElementById("filter-dropdown");
+    const category = QUESTIONS[$dropdownFilter.value]; 
+    const randomQuestion = category[Math.floor(Math.random() * category.length)];
+
+    return randomQuestion;
+}

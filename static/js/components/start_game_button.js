@@ -1,5 +1,6 @@
 import { closeAllModals } from "./modal.js";
 import { createLeaderBoard } from "./leaderboard.js";
+import { generateRandomQuestion } from "../question_generator.js";
 
 export const initiateStartGameButton = () => {
 
@@ -21,13 +22,25 @@ export const initiateStartGameButton = () => {
             $mainScreen.classList.add("is-hidden");
             $gameScreen.classList.remove("is-hidden");
 
+            const $question = document.getElementById("current-question");
+            const $currentPlayer = document.getElementById("current-player");
+
+            const currentScoreboardPlayer = randomKeyValue(scoreboard);
+            console.log(currentScoreboardPlayer); 
+            $question.innerText = generateRandomQuestion();
+            $currentPlayer.innerText = currentScoreboardPlayer.name;
             // Start game Logic
-            gameEventSystem(scoreboard, $gameScreen);
+            gameEventSystem(scoreboard, $gameScreen, currentScoreboardPlayer); 
         });
         
     });  
 };
 
-const gameEventSystem = (scoreboard, $gameScreen) => {
+const randomKeyValue = obj =>{
+    const keys = Object.keys(obj);
+    const randomIndex = Math.floor(Math.random() * keys.length);
+    return obj[keys[randomIndex]];
+}
+const gameEventSystem = (scoreboard, $gameScreen, currentPlayer) => {
     
 };
