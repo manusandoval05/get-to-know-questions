@@ -11,6 +11,13 @@ export const initiateStartGameButton = () => {
         const $leaderboardContainer = document.getElementById("leaderboard");
 
         $button.addEventListener("click", () => {
+
+            if($playerListDOM.querySelectorAll(".field").length  <= 1){
+                const $validationMessage = document.getElementById("not-enough-players")
+                $validationMessage.classList.remove("is-hidden");
+                return;
+            }
+
             let playerList = [];
             $playerListDOM.querySelectorAll(".field").forEach( $playerField => {
                 const playerName = $playerField.querySelector(".has-icons-left").querySelector(".player-name"); 
