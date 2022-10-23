@@ -19,12 +19,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-    <!-- Component Scripts -->
-    <script src="static/js/components/modal.js"></script>
-
-    <!-- Game logic scripts -->
-    <script src="static/js/question_generator.js" type="module"></script>
-    <script src="static/js/player_creator.js" type="module"></script>
     <script src="static/js/index.js" type="module"></script>
 </head>
 <body>
@@ -34,29 +28,17 @@
             <div class="box">
                 <h2 class="title has-text-centered">Start New Game</h2>
                 <div class="container mb-3">
-                    <button class="button is-info" id="player-creator-button" data-target="party-multiplayer-player-list" >New Player</button>
+                    <button class="button is-info player-create-button" data-target="party-multiplayer-player-list" >New Player</button>
                 </div>
-                <p class="help is-danger is-hidden" id="not-enough-players" >At least two players are required</p>
-                <div class="container player-list" id="party-multiplayer-player-list">
-                    <div class="field has-addons">
-                        <p class="control has-icons-left">
-                            <input class="input player-name" type="text" placeholder="Player 1">
-                            <span class="icon is-medium is-left">
-                                <i class="bi bi-person-fill"></i>
-                            </span>
-                        </p>
-                        <p class="control">
-                            <button class="button is-danger is-outlined delete-player">
-                                <span class="icon is-medium">
-                                    <i class="bi bi-trash"></i>
-                                </span>
-                            </button>
-                        </p>
+                <form action="">
+                    <p class="help is-danger is-hidden" id="not-enough-players" >At least two players are required</p>
+                    <div class="container player-list" id="party-multiplayer-player-list">
+                        
                     </div>
-                </div>
-                <div class="container mt-3">
-                    <button class="button is-link start-game" data-target="party-multiplayer-player-list">Start Game</button>
-                </div>
+                    <div class="container mt-3">
+                        <button class="button is-link start-game" type="submit" data-target="party-multiplayer-player-list">Start Game</button>
+                    </div>
+                </form>
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
@@ -131,11 +113,22 @@
                     <div class="card mt-3">
                         <header class="card-header">
                             <p class="card-header-title">
-                                Leaderboard
+                                Scoreboard
                             </p>
                         </header>
-                        <div class="card-content" id="leaderboard">
-                            
+                        <div class="card-content">
+                            <table class="table is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Position</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="scoreboard">
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

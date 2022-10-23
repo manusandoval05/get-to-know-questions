@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const randomQuestion = category[Math.floor(Math.random() * category.length)];
         $question.innerText = randomQuestion; 
         changeBackgroundColor($background);
+        
     });
 });
 
