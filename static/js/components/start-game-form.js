@@ -7,11 +7,9 @@ export default class StartGameForm{
         const modal = document.getElementById(id)
 
         this.createPlayerButton = modal.querySelector(".player-create-button");
-        console.log(this.createPlayerButton);
         this.fieldset = modal.querySelector(".player-list"); 
         this.startGameButton = modal.querySelector(".start-game");
 
-        console.log(this.startGameButton);
         if (!this.fieldset.children.length){
             this.fieldset.appendChild(playerInputField(this.fieldset.children.length + 1));
         }
@@ -19,11 +17,10 @@ export default class StartGameForm{
         this.createPlayerButton.onclick = () => this.fieldset.appendChild(playerInputField(this.fieldset.children.length + 1));
     }
     onClick(callback) {
-        this.startGameButton.onsubmit = e => {
-            console.log(this.startGameButton);
-            e.preventDefault();
-            closeAllModals(); 
-            const players = this.fieldset.querySelectorAll(".player-name").map($element => $element.value);
+        this.startGameButton.onclick = () =>{
+            closeAllModals();
+            
+            const players = Array.from(this.fieldset.querySelectorAll(".player-name")).map($element => $element.value);
 
             callback(players);
         }
