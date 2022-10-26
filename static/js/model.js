@@ -19,7 +19,7 @@ export default class Model{
             position: this.players.length + 1 
         }
 
-        this.players.push = player;
+        this.players.push(player);
 
         return player;
     }
@@ -42,5 +42,17 @@ export default class Model{
     }
     getRandomPlayer(){
         return this.players[Math.floor(Math.random() * this.players.length)]; 
+    }
+    increaseScore(position){
+        const player = this.getPlayer(position - 1); 
+        player.score++;
+        this.updatePositions();  
+
+        return player, this.players; 
+    }
+}
+class QuestionsModel{
+    constructor(){
+
     }
 }

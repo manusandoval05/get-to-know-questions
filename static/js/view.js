@@ -6,21 +6,15 @@ export default class View{
         this.scoreboard = document.getElementById("scoreboard");
         this.defaultModal = new StartGameForm("party-multiplayer-modal");
 
-        this.defaultModal.onClick(players => players.forEach(player => this.createRow(player)));
-        this.defaultModal.onClick(players => {
-            console.log(players); 
-            players.forEach(player => {
-                console.log(player); 
-                this.createRow(player);
-            })
-        }) 
+        this.defaultModal.onClick(players => players.forEach(player => this.addPlayer(player)));
     }
 
     setModel(model){
         this.model = model;
     }
     addPlayer(name){
-        const player = model.addPlayer(name);
+        const player = this.model.addPlayer(name);
+        this.createRow(player);
 
     }
     createRow(player){
@@ -35,5 +29,12 @@ export default class View{
             <td>${player.name}</td>
             <td>${player.score}</td>
         `;
+    }
+}
+
+class PartyGameView{
+    constructor(model){
+        this.model = model; 
+        
     }
 }

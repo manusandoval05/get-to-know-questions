@@ -19,8 +19,13 @@ export default class StartGameForm{
     onClick(callback) {
         this.startGameButton.onclick = () =>{
             closeAllModals();
-            
+            const $gameScreen = document.getElementById("game-screen");
+            const $mainScreen = document.getElementById("main-screen");
+
+            $gameScreen.classList.remove("is-hidden");
+            $mainScreen.classList.add("is-hidden");
             const players = Array.from(this.fieldset.querySelectorAll(".player-name")).map($element => $element.value);
+            console.log(players);
 
             callback(players);
         }
