@@ -25,7 +25,6 @@ export default class StartGameForm{
             $gameScreen.classList.remove("is-hidden");
             $mainScreen.classList.add("is-hidden");
             const players = Array.from(this.fieldset.querySelectorAll(".player-name")).map($element => $element.value);
-            console.log(players);
 
             callback(players);
         }

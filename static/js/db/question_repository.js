@@ -31,7 +31,7 @@ export const STARTERS = [
     "What is the greatest challenge or struggle you have ever faced?", 
     "What is the biggest risk you ever took?", 
 ];
-export const BASIC= [
+export const BASIC = [
     "What is your favorite color?",
     "What is your favorite animal?",
     "Do you have any pets?",

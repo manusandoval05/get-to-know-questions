@@ -3,10 +3,26 @@ import StartGameForm from "./components/start-game-form.js";
 export default class View{
     constructor(){
         this.model = null; 
-        this.scoreboard = document.getElementById("scoreboard");
-        this.defaultModal = new StartGameForm("party-multiplayer-modal");
 
-        this.defaultModal.onClick(players => players.forEach(player => this.addPlayer(player)));
+        this.defaultModal = new StartGameForm("party-multiplayer-modal");
+        
+        this.scoreboard = document.getElementById("scoreboard");
+        this.questionCard = document.getElementById("question-card"); 
+        this.currentPlayerCard = document.getElementById("current-player-card"); 
+
+        this.acceptButton = document.getElementById("accept-button");
+        this.rejectButton = document.getElementById("reject-button");
+
+        // Starts the game
+        this.defaultModal.onClick(players => {
+            players.forEach(player => this.addPlayer(player)); 
+            this.refreshCurrentQuestion(this.getNewQuestion());
+            this.refreshCurrentPlayer(this.getNewPlayer().name); 
+
+        });
+
+        this.acceptButton.onclick = () => this.acceptQuestion(); 
+
     }
 
     setModel(model){
@@ -30,11 +46,32 @@ export default class View{
             <td>${player.score}</td>
         `;
     }
-}
-
-class PartyGameView{
-    constructor(model){
-        this.model = model; 
-        
+    increaseScore(){
+        const players = this.model.increaseScore();
+        this.refreshScoreboard(players);
     }
+    acceptQuestion(){
+        this.increaseScore(); 
+        this.refreshCurrentQuestion(this.getNewQuestion());
+        this.refreshCurrentPlayer(this.getNewPlayer().name);
+    }
+    refreshCurrentPlayer(currentPlayerName){
+        this.currentPlayerCard.textContent = currentPlayerName;
+    }
+    refreshCurrentQuestion(question){
+        this.questionCard.textContent = question; 
+    }
+    refreshScoreboard(players){
+        this.scoreboard.textContent = "";
+        players.forEach(player => this.createRow(player)); 
+    }
+    getNewQuestion(category){
+        const newQuestion = this.model.questions.randomQuestion(category);
+        return newQuestion; 
+    }
+    getNewPlayer(){
+        const newPlayer = this.model.newCurrentPlayer();
+        return newPlayer; 
+    }
+    
 }
