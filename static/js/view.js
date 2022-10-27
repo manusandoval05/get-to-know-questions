@@ -5,10 +5,11 @@ export default class View{
         this.model = null; 
 
         this.defaultModal = new StartGameForm("party-multiplayer-modal");
-        
+
         this.scoreboard = document.getElementById("scoreboard");
         this.questionCard = document.getElementById("question-card"); 
         this.currentPlayerCard = document.getElementById("current-player-card"); 
+        this.categoryDropdown = document.getElementById("filter-dropdown");
 
         this.acceptButton = document.getElementById("accept-button");
         this.rejectButton = document.getElementById("reject-button");
@@ -23,8 +24,13 @@ export default class View{
 
         this.acceptButton.onclick = () => this.acceptQuestion(); 
 
-    }
 
+        this.categoryDropdown.onchange = () => this.changeCategory(this.categoryDropdown.value);
+
+    }
+    changeCategory(category){
+        this.model.currentCategory = category;
+    }
     setModel(model){
         this.model = model;
     }

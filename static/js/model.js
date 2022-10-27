@@ -35,6 +35,15 @@ export default class Model{
 
         this.players = [];
         this.questions = new QuestionsModel(); 
+
+        this._currentCategory = "all";
+    }
+
+    set currentCategory(categoryName){
+        this._currentCategory = categoryName; 
+    }
+    get currentCategory(){
+        return this._currentCategory; 
     }
     getNewQuestion(category){
         this.currentQuestion = this.questions.randomQuestion(category); 
