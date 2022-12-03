@@ -63,7 +63,7 @@ export default class Model{
             name: name, 
             score: 0, 
             position: this.players.length + 1 
-        }
+        }; 
 
         this.players.push(player);
 

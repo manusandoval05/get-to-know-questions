@@ -16,10 +16,13 @@ export default class View{
 
         // Starts the game
         this.defaultModal.onClick(players => {
+            if(players.length <= 1){
+                this.defaultModal.showAlert("At least two players are required to start the game", "is-danger");
+                return;
+            }
             players.forEach(player => this.addPlayer(player)); 
             this.refreshCurrentQuestion(this.getNewQuestion());
             this.refreshCurrentPlayer(this.getNewPlayer().name); 
-
         });
 
         this.acceptButton.onclick = () => this.acceptQuestion(); 
