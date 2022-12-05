@@ -1,4 +1,5 @@
 import StartGameForm from "./components/start-game-form.js";
+import Dropdown from "./components/dropdown.js";
 
 export default class View{
     constructor(){
@@ -9,7 +10,23 @@ export default class View{
         this.scoreboard = document.getElementById("scoreboard");
         this.questionCard = document.getElementById("question-card"); 
         this.currentPlayerCard = document.getElementById("current-player-card"); 
-        this.categoryDropdown = document.getElementById("filter-dropdown");
+        this.categoryDropdown = new Dropdown(
+            "category-dropdown-container", 
+            {
+                STARTERS: "Ice Breakers",
+                BASIC: "Basic get-to-know",
+                FUN: "Fun", 
+                EFFECTIVE: "Effective", 
+                GENERAL: "General", 
+                INTERESTING: "Interesting", 
+                WORK: "Work", 
+                COUPLES: "Couples",
+                STUDENTS: "Students", 
+                TRUTH: "Truth", 
+                PHILOSOPHICAL: "Philosophical"
+            }, 
+            "Categories"
+        ); 
 
         this.acceptButton = document.getElementById("accept-button");
         this.rejectButton = document.getElementById("reject-button");

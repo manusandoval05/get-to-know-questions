@@ -593,7 +593,7 @@ export const PHILOSOPHICAL = [
     "If money is the root of all evil, why do they still ask in church?",
     "How to die without knowing that we are dead?",
     "If it’s true that we are here to help others, then what exactly are the others here for?",
-    "If you hire a guy to kill you, will to ruled as suicide or murder?",
+    "If you hire a guy to kill you, will it be ruled out as suicide or murder?",
     "If man evolved from monkeys and apes, why do we still have monkeys and apes?",
     "If the moon has earthquakes, what do they call moonwalks?",
     "If there aren’t aliens then who are the audience?",
