@@ -1,7 +1,7 @@
 export default class Alert{
     constructor(message, color){
         const $notification = document.createElement("div");
-        $notification.classList.add("notification", color);
+        $notification.classList.add("notification", color, "mb-2");
 
         const $deleteButton = document.createElement("button");
         $deleteButton.classList.add("delete");

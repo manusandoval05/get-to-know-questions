@@ -23,6 +23,8 @@ export default class View{
             players.forEach(player => this.addPlayer(player)); 
             this.refreshCurrentQuestion(this.getNewQuestion());
             this.refreshCurrentPlayer(this.getNewPlayer().name); 
+
+            this.defaultModal.startGame();
         });
 
         this.acceptButton.onclick = () => this.acceptQuestion(); 
