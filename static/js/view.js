@@ -80,7 +80,7 @@ export default class View{
     }
     acceptQuestion(){
         this.increaseScore(); 
-        this.refreshCurrentQuestion(this.getNewQuestion());
+        this.refreshCurrentQuestion(this.getNewQuestion(this.categoryDropdown.selectedCategories));
         this.refreshCurrentPlayer(this.getNewPlayer().name);
     }
     refreshCurrentPlayer(currentPlayerName){
@@ -93,8 +93,8 @@ export default class View{
         this.scoreboard.textContent = "";
         players.forEach(player => this.createRow(player)); 
     }
-    getNewQuestion(category){
-        const newQuestion = this.model.questions.randomQuestion(category);
+    getNewQuestion(categories){
+        const newQuestion = this.model.questions.randomQuestion(categories);
         return newQuestion; 
     }
     getNewPlayer(){

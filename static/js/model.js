@@ -4,23 +4,26 @@ import { STARTERS, BASIC, EFFECTIVE, GOOD, INTERESTING, WORK, COUPLES, STUDENTS,
 class QuestionsModel{
     constructor(){
         this.questions = {
-            starters: STARTERS, 
-            basic: BASIC, 
-            fun: FUN, 
-            effective: EFFECTIVE, 
-            good: GOOD, 
-            interesting: INTERESTING, 
-            work: WORK, 
-            couples: COUPLES, 
-            students: STUDENTS, 
-            truth: TRUTH,
-            philosophical: PHILOSOPHICAL,
-            all: [].concat(STARTERS, BASIC, FUN, EFFECTIVE, GOOD, INTERESTING, WORK, COUPLES, STUDENTS, TRUTH, PHILOSOPHICAL)
+            STARTERS: STARTERS, 
+            BASIC: BASIC, 
+            FUN: FUN, 
+            EFFECTIVE: EFFECTIVE, 
+            GOOD: GOOD, 
+            INTERESTING: INTERESTING, 
+            WORK: WORK, 
+            COUPLES: COUPLES, 
+            STUDENTS: STUDENTS, 
+            TRUTH: TRUTH,
+            PHILOSOPHICAL: PHILOSOPHICAL,
         }
+        this.questionBank = [];
     }
-    randomQuestion(category="all"){
-        const categoryQuestions = this.questions[category]; 
-        const randomQuestion = categoryQuestions[Math.floor(Math.random() * categoryQuestions.length)]; 
+    randomQuestion(categories=["WORK", "BASIC", "EFFECTIVE", "GOOD", "INTERESTING", "WORK", "COUPLES", "STUDENTS", "TRUTH", "PHILOSOPHICAL"]){
+        categories.forEach(category =>{
+            this.questionBank = [];
+            this.questionBank.push(...this.questions[category]);
+        })
+        const randomQuestion = this.questionBank[Math.floor(Math.random() * this.questionBank.length)]; 
 
         return randomQuestion; 
     }
@@ -45,8 +48,8 @@ export default class Model{
     get currentCategory(){
         return this._currentCategory; 
     }
-    getNewQuestion(category){
-        this.currentQuestion = this.questions.randomQuestion(category); 
+    getNewQuestion(categories){
+        this.currentQuestion = this.questions.randomQuestion(categories); 
         return this.currentQuestion;
     }
     setView(view){

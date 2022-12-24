@@ -1,7 +1,7 @@
 export default class Dropdown{
     constructor(container, categories={}, dropdownName){
         const $dropdown = document.createElement("div");
-        $dropdown.classList.add("dropdown");
+        $dropdown.classList.add("dropdown", "mx-3", "my-3");
         $dropdown.innerHTML = `
             <div class="dropdown-trigger">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -12,7 +12,7 @@ export default class Dropdown{
                 </button>
             </div>
             <div class="dropdown-menu" role="menu">
-                <div class="dropdown-content">
+                <div class="dropdown-content px-2">
                     
                 </div>
             </div>
@@ -23,41 +23,54 @@ export default class Dropdown{
         const $dropdownContent = $dropdown.querySelector(".dropdown-menu").querySelector(".dropdown-content");
     
         let categoryCheckboxList = [];
-        let categoriesElements = Object.values(categories);
+        let categoryMap = {}; 
+        
+        for(const key in categories){
+            const value = categories[key];
 
-        categoriesElements = categoriesElements.map(category => {
+            const $checkboxContainer = document.createElement("div");
+
             const $checkbox = document.createElement("label");
             $checkbox.classList.add("checkbox");
+            $checkboxContainer.append($checkbox);
 
-            const $label = document.createElement("p");
-            $label.innerText = category
+            $checkbox.innerText = value + " ";
 
             const $input = document.createElement("input");
             $input.classList.add("category-checklist");
             $input.type = "checkbox";
+            $input.dataset.category = key; 
+            $input.onchange = () => {
+                categoryMap[key] = $input.checked ? true:false;
+                console.table(this._selectedCategories);
+            }; 
 
             categoryCheckboxList.push($input);
 
-            $checkbox.append($input, $label); 
+            $checkbox.append($input); 
             
-            return $checkbox;
-        });
-    
-        categoriesElements.forEach(category => $dropdownContent.appendChild(category));
+            categoryMap[key] = false; 
+            $dropdownContent.appendChild($checkboxContainer); 
+        }
 
-        /*categoryCheckboxList.forEach(checkbox => {
-            checkbox.onchange = () =>{
-                c
-            }
-        })*/
         document.getElementById(container).append($dropdown);
 
         this._element = $dropdown;
         this._trigger = $trigger;
         this._dropdownContent = $dropdownContent;
+        this._selectedCategories = categoryMap;
         this._checkboxes = categoryCheckboxList;
 
 
         this._trigger.onclick = () => this._element.classList.add("is-active");
+    }
+    get selectedCategories(){
+        let selectedCategories = [];
+        for (let key in this._selectedCategories){
+            if(this._selectedCategories[key]){
+                selectedCategories.push(key);
+            }
+        } 
+        return selectedCategories;
     }
 }  
