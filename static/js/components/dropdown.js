@@ -40,6 +40,7 @@ export default class Dropdown{
             $input.classList.add("category-checklist");
             $input.type = "checkbox";
             $input.dataset.category = key; 
+            $input.checked = true; 
             $input.onchange = () => {
                 categoryMap[key] = $input.checked ? true:false;
                 console.table(this._selectedCategories);
@@ -62,7 +63,7 @@ export default class Dropdown{
         this._checkboxes = categoryCheckboxList;
 
 
-        this._trigger.onclick = () => this._element.classList.add("is-active");
+        this._trigger.onclick = () => this._element.classList.toggle("is-active");
     }
     get selectedCategories(){
         let selectedCategories = [];
