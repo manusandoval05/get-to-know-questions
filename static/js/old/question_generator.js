@@ -1,4 +1,4 @@
-import { STARTERS, BASIC, FUN, EFFECTIVE, GOOD, INTERESTING, WORK, COUPLES, STUDENTS, TRUTH, PHILOSOPHICAL } from "./question_repository.js";
+import { STARTERS, BASIC, FUN, EFFECTIVE, GOOD, INTERESTING, WORK, COUPLES, STUDENTS, TRUTH, PHILOSOPHICAL } from "../db/question_repository.js";
 import { changeBackgroundColor } from "./background_color.js";
 
 const QUESTIONS = {
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const randomQuestion = category[Math.floor(Math.random() * category.length)];
         $question.innerText = randomQuestion; 
         changeBackgroundColor($background);
+        
     });
 });
 

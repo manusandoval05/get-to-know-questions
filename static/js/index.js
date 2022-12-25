@@ -1,8 +1,18 @@
-import { initiateDeleteButton } from "./components/delete_button.js";
-import { initiateModals } from "./components/modal.js";
-import { initiateStartGameButton } from "./components/start_game_button.js";
+import Model from "./model.js";
+import View from "./view.js";
 
-initiateDeleteButton(".field", ".delete-player");
-initiateModals(); 
-//Button that waits to the start game button to be pressed and then call the gameEventSystem() function.
-initiateStartGameButton(); 
+import {initiateModals} from "./components/modal.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    const model = new Model(); 
+    const view = new View(); 
+
+    view.setModel(model);
+    model.setView(view); 
+
+    initiateExternalScripts();
+});
+
+function initiateExternalScripts(){
+    initiateModals();
+}
